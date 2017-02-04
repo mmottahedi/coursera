@@ -12,3 +12,4 @@ LazyData: true
 Suggests: knitr,
     rmarkdown
 VignetteBuilder: knitr
+Suggests: testthat

@@ -1,3 +1,5 @@
 library(testthat)
+library(coursera)
 
-expect_that(make_filename(2000), is_a("character"))
+test_check("coursera")
+
