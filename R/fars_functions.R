@@ -7,9 +7,9 @@
 #'
 #' @return returns a dataframe if the file exist on the disk.
 #'
-#' @importFrom readr, dplyr
+#' @importFrom readr dplyr
 #'
-#' @example fars_read("filename")
+#' @examples fars_read("filename")
 #'
 fars_read <- function(filename) {
         if(!file.exists(filename))
@@ -29,7 +29,7 @@ fars_read <- function(filename) {
 #'
 #' @return returns the modified filename with the given year added to it.
 #'
-#' @example make_filename(1988)
+#' @examples make_filename(1988)
 #'
 make_filename <- function(year) {
         year <- as.integer(year)
@@ -46,9 +46,9 @@ make_filename <- function(year) {
 #'
 #' @return returns the dataframe includings the years given in the input.
 #'
-#' @importFrom  dplyr
+#' @importFrom  dplyr tidyr
 #'
-#' @example fars_read_years(c(1988, "1977"))
+#' @examples fars_read_years(1977)
 #'
 fars_read_years <- function(years) {
         lapply(years, function(year) {
@@ -75,9 +75,9 @@ fars_read_years <- function(years) {
 #' @return returns the count of data points for each month and year given in the
 #' input in a wide format.
 #'
-#' @importFrom tidyr, dplyr
+#' @importFrom tidyr dplyr
 #'
-#' @example fars_summarize_years(c(1988, 1977))
+#' @examples fars_summarize_years(1997)
 #'
 fars_summarize_years <- function(years) {
         dat_list <- fars_read_years(years)
@@ -100,9 +100,9 @@ fars_summarize_years <- function(years) {
 #'
 #' @return a map of accidents.
 #'
-#' @importFrom dplyr, maps, graphics
+#' @importFrom dplyr maps graphics
 #'
-#' @example function(c(4,5), c(1988, 1977))
+#' @examples fars_map_state(1, 1977)
 #'
 fars_map_state <- function(state.num, year) {
         filename <- make_filename(year)
